@@ -1,15 +1,15 @@
 deploy:
   infinispan:
     cacheContainer:
-    # [USER] Add cache, template, and counter configuration.
-    name: default
-    # [USER] Specify `security: null` to disable security authorization.
-    security:
-      authorization: {}
-    transport:
-      cluster: ${infinispan.cluster.name:cluster}
-      node-name: ${infinispan.node.name:}
-      stack: kubernetes
+      # [USER] Add cache, template, and counter configuration.
+      name: default
+      # [USER] Specify `security: null` to disable security authorization.
+      security:
+        authorization: {}
+      transport:
+        cluster: ${infinispan.cluster.name:cluster}
+        node-name: ${infinispan.node.name:}
+        stack: kubernetes
     server:
       endpoints:
         # [USER] Hot Rod and REST endpoints.

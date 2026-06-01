@@ -1,15 +1,15 @@
 deploy:
   infinispan:
     cacheContainer:
-    # [USER] Add cache, template, and counter configuration.
-    name: default
-    # [USER] Specify `security: null` to disable security authorization.
-    security:
-      authorization: {}
-    transport:
-      cluster: ${infinispan.cluster.name:cluster}
-      node-name: ${infinispan.node.name:}
-      stack: kubernetes
+      # [USER] Add cache, template, and counter configuration.
+      name: default
+      # [USER] Specify `security: null` to disable security authorization.
+      security:
+        authorization: {}
+      transport:
+        cluster: ${infinispan.cluster.name:cluster}
+        node-name: ${infinispan.node.name:}
+        stack: kubernetes
     server:
       endpoints:
         # [USER] Hot Rod and REST endpoints.
@@ -54,13 +54,13 @@ deploy:
               path: metrics-users.properties
               plainText: true
               relativeTo: infinispan.server.config.path
-        socketBindings:
-          defaultInterface: public
-          portOffset: ${infinispan.socket.binding.port-offset:0}
-          socketBinding:
-            # [USER] Socket binding for the Hot Rod and REST endpoints.
-          - name: default
-            port: 11222
-            # [METRICS] Socket binding for the metrics endpoint.
-          - name: metrics
-            port: 11223
+      socketBindings:
+        defaultInterface: public
+        portOffset: ${infinispan.socket.binding.port-offset:0}
+        socketBinding:
+        # [USER] Socket binding for the Hot Rod and REST endpoints.
+        - name: default
+          port: 11222
+        # [METRICS] Socket binding for the metrics endpoint.
+        - name: metrics
+          port: 11223
